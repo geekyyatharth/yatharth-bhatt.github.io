@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siemens India Limited – Equity Analysis Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --navy-mid: #163260;
+    --blue: #1a4fa0;
+    --teal: #00897b;
+    --teal-light: #e0f2f1;
+    --red: #c0392b;
+    --red-light: #fdecea;
+    --orange: #e67e22;
+    --orange-light: #fef3e2;
+    --gold: #c9a84c;
+    --light-bg: #f7f9fc;
+    --white: #ffffff;
+    --text: #1a1a2e;
+    --muted: #5a6476;
+    --border: #dce4ef;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #eef2f8; color: var(--text); font-size: 14px; line-height: 1.75; }
+  .page-wrapper { max-width: 960px; margin: 30px auto; background: var(--white); box-shadow: 0 8px 40px rgba(13,31,60,0.14); border-radius: 4px; overflow: hidden; }
+
+  /* HEADER */
+  .report-header { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1a4fa0 100%); padding: 48px 52px 36px; position: relative; overflow: hidden; }
+  .report-header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border-radius: 50%; background: rgba(201,168,76,0.12); }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; }
+  .company-badge { display: inline-block; background: rgba(201,168,76,0.2); border: 1px solid rgba(201,168,76,0.5); color: var(--gold); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; margin-bottom: 14px; font-weight: 600; }
+  .company-name { font-family: 'Playfair Display', serif; color: #fff; font-size: 36px; font-weight: 700; line-height: 1.15; letter-spacing: -0.5px; }
+  .company-sub { color: rgba(255,255,255,0.55); font-size: 13px; margin-top: 6px; }
+  .report-meta { text-align: right; color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.8; }
+  .report-meta strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+  .header-divider { height: 1px; background: rgba(255,255,255,0.12); margin: 20px 0; }
+  .header-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+  .tag { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); font-size: 11px; padding: 4px 12px; border-radius: 20px; font-weight: 500; }
+
+  /* RECOMMENDATION BOX */
+  .rec-box { background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%); border-left: 5px solid var(--orange); border-radius: 0 6px 6px 0; padding: 24px 28px; margin: 32px 52px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; }
+  .rec-box::before { content: 'INVESTMENT RECOMMENDATION'; position: absolute; top: -10px; left: 20px; background: var(--orange); color: #fff; font-size: 9px; letter-spacing: 2px; font-weight: 700; padding: 3px 10px; border-radius: 2px; }
+  .rec-item { text-align: center; }
+  .rec-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+  .rec-value { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--navy); }
+  .rec-value.hold { color: var(--orange); }
+  .rec-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* BODY */
+  .report-body { padding: 40px 52px 60px; }
+
+  /* SECTION */
+  .section { margin-bottom: 48px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); padding-bottom: 10px; border-bottom: 2px solid var(--navy); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .section-num { background: var(--navy); color: var(--gold); font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; padding: 2px 10px; border-radius: 2px; letter-spacing: 1px; }
+  .subsection-title { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--navy-mid); margin: 26px 0 10px; padding-left: 12px; border-left: 3px solid var(--gold); }
+
+  p { margin-bottom: 12px; color: #2d3748; }
+  ul { padding-left: 20px; margin-bottom: 12px; }
+  li { margin-bottom: 6px; color: #2d3748; }
+  strong { color: var(--navy); }
+
+  /* ALERT BOX */
+  .alert-box { background: var(--red-light); border-left: 5px solid var(--red); padding: 18px 20px; border-radius: 0 6px 6px 0; margin: 20px 0; }
+  .alert-box .alert-title { font-size: 13px; font-weight: 700; color: var(--red); margin-bottom: 6px; }
+  .alert-box p { margin-bottom: 0; font-size: 13px; color: #5d0000; }
+
+  /* NOTE BOX */
+  .note-box { background: var(--orange-light); border-left: 4px solid var(--orange); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 12px 0; font-size: 12.5px; color: #5d4037; }
+  .note-box strong { color: #6d4c41; }
+
+  /* TABLES */
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 11px 14px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.5px; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:nth-child(even) { background: var(--light-bg); }
+  tbody td { padding: 10px 14px; vertical-align: middle; }
+  tbody td:first-child { font-weight: 600; color: var(--navy-mid); }
+  tfoot tr { background: #eef2f8; border-top: 2px solid var(--border); }
+  tfoot td { padding: 10px 14px; font-weight: 700; font-size: 12px; color: var(--navy); }
+
+  /* TREND BADGES */
+  .trend { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 12px; }
+  .trend.up    { background: var(--teal-light); color: #00695c; }
+  .trend.down  { background: var(--red-light); color: var(--red); }
+  .trend.flat  { background: var(--orange-light); color: #bf6000; }
+  .trend.up::before   { content: '▲'; font-size: 9px; }
+  .trend.down::before { content: '▼'; font-size: 9px; }
+  .trend.flat::before { content: '●'; font-size: 9px; }
+
+  /* CALLOUT */
+  .callout { background: linear-gradient(135deg, #f0f4ff 0%, #e8effe 100%); border: 1px solid #c5d2f0; border-radius: 6px; padding: 18px 20px; margin: 18px 0; }
+  .callout-title { font-weight: 700; color: var(--navy); font-size: 13px; margin-bottom: 6px; }
+  .callout p { margin-bottom: 0; font-size: 13px; }
+
+  /* METRICS GRID */
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 20px 0; }
+  .metric-card { background: var(--light-bg); border: 1px solid var(--border); border-radius: 6px; padding: 14px; text-align: center; }
+  .metric-card .m-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; font-weight: 600; }
+  .metric-card .m-value { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--navy); }
+  .metric-card .m-sub { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .metric-card.green { border-top: 3px solid var(--teal); }
+  .metric-card.red   { border-top: 3px solid var(--red); }
+  .metric-card.gold  { border-top: 3px solid var(--gold); }
+  .metric-card.orange { border-top: 3px solid var(--orange); }
+
+  /* DCF SCENARIOS */
+  .scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }
+  .scenario-card { border-radius: 8px; padding: 18px; text-align: center; }
+  .scenario-card.bear { background: #fdecea; border: 1px solid #f5c6cb; }
+  .scenario-card.base { background: #fff3cd; border: 1px solid #ffc107; }
+  .scenario-card.bull { background: #e8f5e9; border: 1px solid #a5d6a7; }
+  .scenario-card .s-label { font-size: 10px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+  .scenario-card.bear .s-label { color: var(--red); }
+  .scenario-card.base .s-label { color: #856404; }
+  .scenario-card.bull .s-label { color: #2e7d32; }
+  .scenario-card .s-value { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; }
+  .scenario-card.bear .s-value { color: var(--red); }
+  .scenario-card.base .s-value { color: #856404; }
+  .scenario-card.bull .s-value { color: #2e7d32; }
+  .scenario-card .s-delta { font-size: 12px; font-weight: 600; margin-top: 4px; }
+  .scenario-card .s-assumptions { font-size: 11px; color: var(--muted); margin-top: 8px; }
+
+  /* SHAREHOLDING */
+  .sh-bar-wrap { margin: 20px 0; }
+  .sh-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .sh-label { width: 160px; font-size: 12.5px; font-weight: 500; color: var(--navy-mid); flex-shrink: 0; }
+  .sh-bar-bg { flex: 1; background: var(--border); height: 14px; border-radius: 4px; overflow: hidden; }
+  .sh-bar-fill { height: 100%; border-radius: 4px; }
+  .sh-val { width: 50px; text-align: right; font-size: 12.5px; font-weight: 700; color: var(--navy); flex-shrink: 0; }
+
+  /* FINAL VERDICT */
+  .final-verdict { background: linear-gradient(135deg, #3d1f00 0%, #7a3b00 100%); border-radius: 8px; padding: 32px 36px; color: #fff; margin: 30px 0; }
+  .final-verdict-top { display: flex; gap: 32px; align-items: center; margin-bottom: 24px; }
+  .final-verdict-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 6px; }
+  .final-verdict-value { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #ffc947; }
+  .final-verdict-divider { width: 1px; background: rgba(255,255,255,0.15); align-self: stretch; }
+  .final-verdict-points { flex: 1; }
+  .final-verdict-point { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: rgba(255,255,255,0.8); }
+  .final-verdict-point::before { content: '→'; color: #ffc947; font-weight: 700; flex-shrink: 0; }
+
+  /* PAGE BREAK */
+  .page-break { height: 1px; background: var(--border); margin: 40px 0; }
+  @media print {
+    body { background: #fff; }
+    .page-wrapper { box-shadow: none; margin: 0; max-width: 100%; }
+    .section { page-break-inside: avoid; }
+    .page-break { page-break-after: always; }
+  }
+
+  .text-green { color: var(--teal); font-weight: 600; }
+  .text-red   { color: var(--red); font-weight: 600; }
+  .text-gold  { color: #b8860b; font-weight: 600; }
+  .text-orange { color: var(--orange); font-weight: 600; }
+  .highlight { background: #fff8dc; padding: 1px 4px; border-radius: 2px; }
+  .overvalued-stamp { display: inline-block; background: var(--red); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 2px; padding: 4px 12px; border-radius: 3px; text-transform: uppercase; }
+  .dcf-row-highlight { background: #fff3cd !important; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+<!-- ══ HEADER ══ -->
+<div class="report-header">
+  <div class="header-top">
+    <div>
+      <div class="company-badge">Equity Analysis Report</div>
+      <div class="company-name">Siemens India Limited</div>
+      <div class="company-sub">NSE: SIEMENS &nbsp;|&nbsp; BSE: 500550 &nbsp;|&nbsp; Sector: Capital Goods &amp; Heavy Electrical Equipment</div>
+    </div>
+    <div class="report-meta">
+      <strong>Prepared by</strong><br>Yatharth Bhatt<br><br>
+      <strong>DCF Model by</strong><br>Yatharth Bhatt<br><br>
+      <strong>Report Date</strong><br>03 March 2026
+    </div>
+  </div>
+  <div class="header-divider"></div>
+  <div class="header-tags">
+    <span class="tag">Capital Goods</span>
+    <span class="tag">Industrial Automation</span>
+    <span class="tag">Smart Infrastructure</span>
+    <span class="tag">Energy Transition</span>
+    <span class="tag">Mobility</span>
+    <span class="tag">Debt-Free</span>
+    <span class="tag">⚠ DCF: Overvalued</span>
+  </div>
+</div>
+
+<!-- ══ RECOMMENDATION BOX ══ -->
+<div class="rec-box">
+  <div class="rec-item">
+    <div class="rec-label">Recommendation</div>
+    <div class="rec-value hold">HOLD / REDUCE</div>
+    <div class="rec-sub">Do Not Add at Current Levels</div>
+  </div>
+  <div class="rec-item">
+    <div class="rec-label">DCF Fair Value (Base)</div>
+    <div class="rec-value">₹2,340</div>
+    <div class="rec-sub">~30% Downside from ₹3,341.60</div>
+  </div>
+  <div class="rec-item">
+    <div class="rec-label">Bull Case DCF</div>
+    <div class="rec-value" style="font-size:20px">₹3,005 – ₹3,540</div>
+    <div class="rec-sub">Exit Multiple Bull; 18–24 Month Horizon</div>
+  </div>
+</div>
+
+<!-- ══ BODY ══ -->
+<div class="report-body">
+
+<!-- ── SECTION 1 ── -->
+<div class="section">
+  <div class="section-title"><span class="section-num">01</span> Company Overview</div>
+
+  <p><strong>Siemens India Limited</strong> (recently rebranded from <em>Siemens Limited</em> following the energy business demerger) is a subsidiary of <strong>Siemens AG, Germany</strong> and has been listed on Indian exchanges since 1957. The company operates at the intersection of <strong>electrification, automation, and digitalization</strong>, serving India's most critical infrastructure needs across energy systems, manufacturing, mobility, and smart buildings.</p>
+
+  <p>Headquartered in Mumbai, Siemens India employs over 11,000 professionals across manufacturing facilities at Kalwa, Nashik, Aurangabad, Goa, Gurgaon, and Vadodara. Its business spans four segments:</p>
+  <ul>
+    <li><strong>Energy:</strong> Transformers, switchgear, grid solutions, power automation (~30% pre-demerger)</li>
+    <li><strong>Smart Infrastructure:</strong> Building technologies, low-voltage products, distribution systems (~25%)</li>
+    <li><strong>Digital Industries:</strong> Factory automation, drives, PLCs, industrial software (~22%)</li>
+    <li><strong>Mobility:</strong> Rail electrification, rolling stock, traffic management (~23%)</li>
+  </ul>
+
+  <div class="alert-box">
+    <div class="alert-title">⚠ TWO CRITICAL STRUCTURAL CHANGES — Impact on Financials</div>
+    <p><strong>1. Energy Business Demerger (effective 1 March 2025):</strong> Siemens India's large Energy business was spun off into a separately listed entity, <em>Siemens Energy India</em>. This significantly reduces the revenue base — LTM revenue falls from ₹19,524 Cr (FY24) to ₹17,337 Cr (post-demerger). All forward projections in this report are on a <em>post-demerger basis</em>.</p>
+    <p style="margin-top:8px"><strong>2. Fiscal Year Change (from FY26 onwards):</strong> The company has changed its fiscal year-end from <em>30 September</em> to <em>31 March</em>. FY25 = Oct 2024–Sep 2025 (last old FY). FY26 onwards = April–March (new FY). Historical data (FY23A, FY24A) uses the Oct–Sep calendar.</p>
+  </div>
+
+  <div class="rec-box" style="background:linear-gradient(135deg,#fdecea,#fff5f5); border-color:var(--red); margin:24px 0;">
+    <div class="rec-item">
+      <div class="rec-label">Recommendation</div>
+      <div class="rec-value" style="color:var(--orange);font-size:22px">HOLD / REDUCE</div>
+      <div class="rec-sub">Do Not Initiate New Longs</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-label">DCF Base Fair Value</div>
+      <div class="rec-value" style="font-size:22px">₹2,340</div>
+      <div class="rec-sub">~30% below market price</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-label">Investment Horizon</div>
+      <div class="rec-value" style="font-size:18px">18–24 Months</div>
+      <div class="rec-sub">Watch for re-rating trigger</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ── SECTION 2 ── -->
+<div class="section">
+  <div class="section-title"><span class="section-num">02</span> Quantitative Analysis</div>
+
+  <div class="subsection-title">a) Market Valuation and Price Metrics</div>
+
+  <div class="metrics-grid">
+    <div class="metric-card gold">
+      <div class="m-label">Market Cap</div>
+      <div class="m-value">₹1,22,518 Cr</div>
+      <div class="m-sub">Large-Cap</div>
+    </div>
+    <div class="metric-card gold">
+      <div class="m-label">Stock Price (LTP)</div>
+      <div class="m-value">₹3,341.60</div>
+      <div class="m-sub">NSE, 03-Mar-2026</div>
+    </div>
+    <div class="metric-card red">
+      <div class="m-label">P/E Ratio (LTM)</div>
+      <div class="m-value">68.9x</div>
+      <div class="m-sub">Sector Premium</div>
+    </div>
+    <div class="metric-card orange">
+      <div class="m-label">52W High / Low</div>
+      <div class="m-value" style="font-size:15px">₹5,520 / ₹2,450</div>
+      <div class="m-sub">NSE</div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>Current Value</th><th>5-Year Trend</th></tr></thead>
+      <tbody>
+        <tr><td>Market Capitalization</td><td>₹1,22,518 Cr</td><td><span class="trend up">Rapid increase</span></td></tr>
+        <tr><td>Current Stock Price</td><td>₹3,341.60</td><td><span class="trend down">-39% from 52W High of ₹5,520</span></td></tr>
+        <tr><td>P/E Ratio (LTM)</td><td>68.9x</td><td><span class="trend down">Rich; well above sector median</span></td></tr>
+        <tr><td>LTM Revenue</td><td>₹17,337 Cr</td><td><span class="trend flat">Post-demerger adjusted base</span></td></tr>
+        <tr><td>LTM PAT</td><td>₹1,769 Cr</td><td><span class="trend up">Improving PAT margins</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">📊 Trend Analysis</div>
+    <p>The stock has corrected sharply — down ~39% from its 52-week high of ₹5,520 — yet at ₹3,341.60 still trades at <span class="text-red">68.9x LTM earnings</span>, well above the capital goods sector median of ~35–40x. The Energy demerger has reduced the revenue base to ₹17,337 Cr, and while it improves the quality/margin profile of the remaining business, it also reduces absolute earnings for a transitional period. DCF analysis (Section 6) implies the stock remains significantly overvalued on a fundamental basis even after this correction.</p>
+  </div>
+
+  <p><strong>Key Takeaways:</strong> At 68.9x LTM P/E, the market is pricing in near-perfect execution on India's capex cycle AND continued margin expansion in a post-demerger business. The PEG ratio of <span class="text-red">~5.4x</span> (68.9 ÷ ~12.7% earnings CAGR) signals <strong>extremely stretched valuations</strong> relative to growth. The DCF model implies the market-implied assumptions require ~17% revenue CAGR and ~40x+ EV/EBITDA on FY30 earnings — a very high bar.</p>
+
+  <!-- 2b -->
+  <div class="subsection-title">b) Profitability and Returns</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>FY24A</th><th>FY23A</th><th>FY22A</th><th>FY21A</th><th>FY20A</th><th>Trend</th></tr></thead>
+      <tbody>
+        <tr><td>Return on Equity (ROE)</td><td class="text-green">21.5%</td><td>20.1%</td><td>16.8%</td><td>11.2%</td><td>14.5%</td><td><span class="trend up">Consistently improving</span></td></tr>
+        <tr><td>Return on Capital Employed (ROCE)</td><td class="text-green">27.4%</td><td>25.3%</td><td>20.9%</td><td>13.8%</td><td>17.2%</td><td><span class="trend up">Strong uptrend</span></td></tr>
+        <tr><td>Net Profit Margin</td><td>9.1%</td><td>8.6%</td><td>7.7%</td><td>6.1%</td><td>6.6%</td><td><span class="trend up">Steadily expanding</span></td></tr>
+        <tr><td>EBITDA Margin</td><td>10.8%</td><td>10.5%</td><td>9.8%</td><td>9.6%</td><td>10.3%</td><td><span class="trend up">Modest improvement</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <div class="callout-title">📊 Trend Analysis &amp; Key Takeaways</div>
+    <p>Profitability has improved materially over 5 years. ROCE of <span class="text-green">27.4%</span> comfortably exceeds the estimated WACC of 12.5%, confirming consistent economic value creation. However, note that post-demerger, the higher-margin Energy segment has been carved out, and the DCF model assumes EBITDA margins start at 11% (FY25 post-demerger base) and expand to 13% by FY30. The margin expansion story therefore needs to be largely delivered by Digital Industries and Smart Infrastructure mix-enrichment, which warrants monitoring.</p>
+  </div>
+
+  <!-- 2c -->
+  <div class="subsection-title">c) Growth Metrics</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Year</th><th>Revenue (₹ Cr)</th><th>EBITDA (₹ Cr)</th><th>PAT (₹ Cr)</th><th>FCF (₹ Cr)</th><th>Rev Growth YoY</th></tr></thead>
+      <tbody>
+        <tr><td>FY24A (Oct–Sep)</td><td><strong>19,524</strong></td><td>2,109</td><td>1,769</td><td>859</td><td class="text-green">+8.7%</td></tr>
+        <tr><td>FY23A (Oct–Sep)</td><td>17,965</td><td>1,886</td><td>—</td><td>966</td><td class="text-green">—</td></tr>
+        <tr><td>FY25E (post-demerger base)</td><td>17,337</td><td>1,907</td><td>—</td><td>1,325</td><td class="text-red">Demerger adjustment</td></tr>
+        <tr><td>FY26E (new Apr–Mar FY)</td><td>19,244</td><td>2,213</td><td>—</td><td>893</td><td class="text-green">+11% YoY</td></tr>
+        <tr><td>FY27E</td><td>21,746</td><td>2,610</td><td>—</td><td>1,038</td><td class="text-green">+13%</td></tr>
+        <tr><td>FY28E</td><td>24,355</td><td>3,044</td><td>—</td><td>1,283</td><td class="text-green">+12%</td></tr>
+        <tr><td>FY29E</td><td>26,791</td><td>3,429</td><td>—</td><td>1,537</td><td class="text-green">+10%</td></tr>
+        <tr><td>FY30E</td><td>29,202</td><td>3,796</td><td>—</td><td>1,755</td><td class="text-green">+9%</td></tr>
+      </tbody>
+      <tfoot><tr><td>Revenue CAGR FY25–FY30E</td><td colspan="5">12.7% (base case) — DCF model projection</td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">📊 Trend Analysis &amp; Key Takeaways</div>
+    <p>The DCF model forecasts revenue CAGR of <strong>12.7%</strong> over FY25–FY30E. Note the FY25 revenue of ₹17,337 Cr is lower than FY24's ₹19,524 Cr — not a true revenue decline, but a <strong>structural reduction from the Energy demerger</strong>. Post-demerger, the company is a leaner, higher-margin industrial technology business. The bull case requires ~17% CAGR (as shown in the Verdict sheet sensitivity), while the bear case assumes only 8%. FCFF steadily builds from ₹1,325 Cr (FY25E) to ₹1,755 Cr (FY30E), reflecting improving cash generation as the business scales.</p>
+  </div>
+
+  <!-- 2d -->
+  <div class="subsection-title">d) Balance Sheet Strength</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>FY24A</th><th>FY23A</th><th>FY22A</th><th>FY21A</th><th>FY20A</th><th>Trend</th></tr></thead>
+      <tbody>
+        <tr><td>Debt-to-Equity Ratio</td><td class="text-green">~0.01</td><td class="text-green">~0.02</td><td class="text-green">~0.03</td><td>~0.05</td><td>~0.08</td><td><span class="trend up">Effectively debt-free</span></td></tr>
+        <tr><td>Net Cash (₹ Cr) — Estimated</td><td class="text-green">₹4,500 Cr</td><td class="text-green">~₹3,800 Cr</td><td>~₹2,900 Cr</td><td>~₹2,400 Cr</td><td>~₹2,000 Cr</td><td><span class="trend up">Growing surplus</span></td></tr>
+        <tr><td>Total Debt (₹ Cr)</td><td>~₹1,500 Cr</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="trend flat">Mostly lease liabilities</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <div class="callout-title">📊 Key Takeaways</div>
+    <p>Siemens India maintains one of the cleanest balance sheets in Indian capital goods — effectively <span class="text-green">debt-free</span> with estimated net cash of <strong>₹4,500 Cr</strong> (per DCF model, used as bridge in equity value derivation). This represents ~3.7% of current market cap, a meaningful buffer. The debt weight in the WACC calculation is just 1.2%, making Ke the virtually sole driver of WACC.</p>
+  </div>
+
+  <!-- 2e -->
+  <div class="subsection-title">e) Cash Flow Analysis</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>FY24A</th><th>FY23A</th><th>FY25E</th><th>FY26E</th><th>FY30E</th><th>Trend</th></tr></thead>
+      <tbody>
+        <tr><td>Free Cash Flow to Firm (FCFF, ₹ Cr)</td><td>859</td><td>966</td><td>1,325</td><td>893</td><td>1,755</td><td><span class="trend up">Building over projection</span></td></tr>
+        <tr><td>FCF Margin (%)</td><td>4.4%</td><td>5.4%</td><td>7.6%</td><td>4.6%</td><td>6.0%</td><td><span class="trend flat">Gradual improvement</span></td></tr>
+        <tr><td>CapEx as % of Revenue</td><td>3.0%</td><td>3.0%</td><td>3.0%</td><td>3.0%</td><td>3.0%</td><td><span class="trend flat">Stable assumption</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <div class="callout-title">📊 Key Takeaways</div>
+    <p>The DCF model's FCFF builds from ₹859 Cr (FY24A) to ₹1,755 Cr (FY30E), a <strong>2x FCF growth</strong> over the projection period. The FY26E FCF dips to ₹893 Cr from FY25E's ₹1,325 Cr primarily due to working capital build as revenue ramps up post-demerger. The sum of <strong>PV of FCFs (FY26–FY30E) = ₹4,448 Cr</strong> — a critical input in the DCF. The terminal value assumptions drive the vast majority of intrinsic value (~75–90%), making WACC and growth rate assumptions critically important.</p>
+  </div>
+
+  <!-- 2f -->
+  <div class="subsection-title">f) Dividend Analysis</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>FY24A</th><th>FY23A</th><th>FY22A</th><th>FY21A</th><th>FY20A</th><th>Trend</th></tr></thead>
+      <tbody>
+        <tr><td>Dividend Per Share (₹)</td><td>₹12</td><td>₹10</td><td>₹8</td><td>₹6</td><td>₹7</td><td><span class="trend up">Gradually growing</span></td></tr>
+        <tr><td>Dividend Yield</td><td class="text-red">~0.36%</td><td>~0.40%</td><td>—</td><td>—</td><td>—</td><td><span class="trend flat">Low; negligible income</span></td></tr>
+        <tr><td>Dividend Payout Ratio</td><td>~19%</td><td>~21%</td><td>~26%</td><td>~30%</td><td>~28%</td><td><span class="trend down">Declining</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Key Takeaways:</strong> At <span class="text-red">0.36% dividend yield</span>, Siemens India offers no meaningful income return. The declining payout ratio confirms a growth-reinvestment philosophy. This is appropriate given the capital intensity of expansion, but investors must rely entirely on capital appreciation — which the DCF suggests is limited at current prices.</p>
+
+  <!-- 2g -->
+  <div class="subsection-title">g) Efficiency Ratios</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>FY24A</th><th>FY23A</th><th>FY22A</th><th>FY21A</th><th>FY20A</th><th>Trend</th></tr></thead>
+      <tbody>
+        <tr><td>Asset Turnover Ratio</td><td class="text-green">1.52x</td><td>1.48x</td><td>1.35x</td><td>1.18x</td><td>1.25x</td><td><span class="trend up">Improving</span></td></tr>
+        <tr><td>Working Capital (% of ΔRev)</td><td>~15%</td><td>~15%</td><td>—</td><td>—</td><td>—</td><td><span class="trend flat">Stable model assumption</span></td></tr>
+        <tr><td>D&amp;A as % of Revenue</td><td>~2.0%</td><td>~2.0%</td><td>—</td><td>—</td><td>—</td><td><span class="trend flat">Consistent</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Key Takeaways:</strong> Asset turnover of 1.52x combined with EBITDA margins of ~11% continues to drive the strong ROCE of 27.4%. The working capital intensity assumption of 15% of revenue change (used in FCF modelling) reflects the project-based nature of the business, where revenue build-up requires commensurate working capital deployment.</p>
+
+  <!-- 2h -->
+  <div class="subsection-title">h) Valuation Metrics — Peer Comparison</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Company</th><th>P/E (FY25E)</th><th>EV/EBITDA (FY25E)</th><th>ROCE</th><th>Rev CAGR (3Y)</th><th>EBITDA Margin</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Siemens India</strong></td><td class="text-red"><strong>~69x (LTM)</strong></td><td class="text-red"><strong>~40x (implied)</strong></td><td class="text-green"><strong>~27%</strong></td><td><strong>~13%</strong></td><td><strong>~11%</strong></td></tr>
+        <tr><td>ABB India</td><td>~65x</td><td>~35–38x</td><td>~35%</td><td>~15%</td><td>~12%</td></tr>
+        <tr><td>Hitachi Energy India</td><td>~80x+</td><td>~45–50x</td><td>—</td><td>~25%</td><td>~10%</td></tr>
+        <tr><td>GE Vernova T&amp;D India</td><td>~55x</td><td>~30–35x</td><td>—</td><td>~18%</td><td>~11%</td></tr>
+        <tr><td>BHEL</td><td>~45x</td><td>~20x</td><td>~5–7%</td><td>~18%</td><td>~5%</td></tr>
+        <tfoot><tr><td>Global Industrial Peers (Avg)</td><td>~22–28x</td><td>~14–18x</td><td>~13–16%</td><td>~6–8%</td><td>~13–16%</td></tr></tfoot>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <div class="callout-title">📊 Peer Comparison Analysis</div>
+    <p>Indian capital goods MNCs trade at a <strong>structural premium of 2–3x</strong> over global industrials, reflecting India's higher nominal growth rates and scarcity premium. Within this peer set, Siemens India at 69x P/E is broadly consistent — ABB India at ~65x, Hitachi Energy at ~80x+. The DCF model's exit multiple assumption of <strong>28x EV/EBITDA</strong> is calibrated against ABB India (~35–38x) and global peers (~14–18x), and is a defensible mid-case. To justify the current price of ₹3,342, the exit multiple would need to be ~40x+ — approaching Hitachi Energy India territory, which requires meaningfully higher revenue growth rates (~25% CAGR vs. Siemens India's modelled 12.7%).</p>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ── SECTION 3 ── -->
+<div class="section">
+  <div class="section-title"><span class="section-num">03</span> Qualitative Analysis</div>
+
+  <div class="subsection-title">a) Business Model</div>
+  <p><strong>Core Products &amp; Services (Post-Demerger):</strong> With the Energy segment spun off to Siemens Energy India, the remaining business is more concentrated in <strong>higher-margin, digital-intensive segments</strong>. The portfolio spans factory automation (PLCs, drives, robotics), building technologies, rail traction systems, and smart grid solutions. Services (AMCs, digital upgrades) are the fastest-growing stream at 12–15% of revenues, improving earnings quality and reducing cyclicality.</p>
+  <ul>
+    <li><strong>Projects &amp; Long-Cycle Orders:</strong> Rail electrification, grid projects (~50–55%) — order-backed revenue visibility with ₹26,200 Cr loco order as marquee contract</li>
+    <li><strong>Products &amp; Solutions:</strong> Standardized equipment with shorter delivery cycles (~30–35%)</li>
+    <li><strong>Services &amp; Software:</strong> Annual maintenance, IoT platforms, digital upgrades (~12–15%)</li>
+  </ul>
+
+  <p><strong>Competitive Advantages:</strong> Global Siemens AG technology access, cross-segment bundling, 130+ year India brand equity, and localised manufacturing qualifying for government procurement — together form a <strong>wide and durable competitive moat</strong> that pure domestic players cannot replicate.</p>
+
+  <div class="subsection-title">b) Management Quality</div>
+  <p>Siemens India is led by <strong>Sunil Mathur (MD &amp; CEO)</strong>, a long-tenured Siemens veteran with deep domain expertise. Governance standards are aligned with Siemens AG's global compliance framework. With Siemens AG holding 75% (at the maximum permitted limit), governance accountability is strengthened by the global parent's fiduciary oversight, though minority representation is structurally limited.</p>
+
+  <div class="subsection-title">c) Growth Strategy</div>
+  <p>Key strategic pillars driving forward growth: (1) Railway electrification and metro rail expansion — over 1,000 km of metro lines under construction nationwide; (2) PLI-driven manufacturing upgrade demand for Digital Industries; (3) India's data centre boom requiring smart power infrastructure; (4) Ongoing margin improvement through mix shift to software and services within the Digital Industries segment. R&amp;D from the Pune Technology Centre contributes to Siemens AG's global AI and edge computing roadmap, sustaining product relevance.</p>
+</div>
+
+<!-- ── SECTION 4 ── -->
+<div class="section">
+  <div class="section-title"><span class="section-num">04</span> Shareholding Pattern Analysis</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Category</th><th>Sep 2024</th><th>Mar 2024</th><th>Sep 2023</th><th>Sep 2022</th><th>Trend</th></tr></thead>
+      <tbody>
+        <tr><td>Promoter (Siemens AG)</td><td class="text-green"><strong>75.00%</strong></td><td>75.00%</td><td>75.00%</td><td>75.00%</td><td><span class="trend flat">Stable at max. allowed</span></td></tr>
+        <tr><td>Foreign Institutional Investors</td><td>5.6%</td><td>5.8%</td><td>6.1%</td><td>7.2%</td><td><span class="trend down">Gradual reduction</span></td></tr>
+        <tr><td>Domestic Institutional Investors</td><td class="text-green">12.4%</td><td>11.9%</td><td>11.3%</td><td>9.8%</td><td><span class="trend up">Rising conviction</span></td></tr>
+        <tr><td>Public / Retail</td><td>7.0%</td><td>7.3%</td><td>7.6%</td><td>8.0%</td><td><span class="trend down">Slight decline</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sh-bar-wrap" style="margin-top:20px">
+    <div class="sh-row"><div class="sh-label">Promoter (Siemens AG)</div><div class="sh-bar-bg"><div class="sh-bar-fill" style="width:75%;background:linear-gradient(90deg,#0d1f3c,#1a4fa0)"></div></div><div class="sh-val">75.0%</div></div>
+    <div class="sh-row"><div class="sh-label">DIIs</div><div class="sh-bar-bg"><div class="sh-bar-fill" style="width:12.4%;background:var(--teal)"></div></div><div class="sh-val">12.4%</div></div>
+    <div class="sh-row"><div class="sh-label">FIIs</div><div class="sh-bar-bg"><div class="sh-bar-fill" style="width:5.6%;background:var(--gold)"></div></div><div class="sh-val">5.6%</div></div>
+    <div class="sh-row"><div class="sh-label">Public / Retail</div><div class="sh-bar-bg"><div class="sh-bar-fill" style="width:7%;background:var(--muted)"></div></div><div class="sh-val">7.0%</div></div>
+  </div>
+
+  <p><strong>Key Takeaways:</strong> The 75% promoter lock-in creates a free float of only 25% (~₹30,630 Cr), a significant scarcity factor that contributes to premium valuation but also means price discovery is driven by a relatively thin float. Increasing DII ownership (9.8% → 12.4%) by large domestic MFs reflects long-term confidence in India's industrial capex theme. The declining FII holding may reflect both global EM portfolio rotation and concern over stretched valuations identified in DCF analysis.</p>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ── SECTION 5 ── -->
+<div class="section">
+  <div class="section-title"><span class="section-num">05</span> Investment Thesis</div>
+
+  <div class="subsection-title" style="margin-top:0">Key Drivers for Future Growth</div>
+  <ul>
+    <li><strong>India's Infrastructure Supercycle:</strong> Government capex at generational highs, with Siemens India as a diversified beneficiary across rail traction, grid, and smart buildings</li>
+    <li><strong>Manufacturing Renaissance (PLI + China+1):</strong> Drives significant demand for Digital Industries — factory automation, PLCs, industrial drives</li>
+    <li><strong>Rail Mega-Order (₹26,200 Cr Loco Contract):</strong> A multi-year revenue visibility anchor; execution risk is the primary swing factor per the DCF risk matrix</li>
+    <li><strong>Services &amp; Software Scaling:</strong> As the installed base compounds, high-margin service revenues grow organically, improving overall EBITDA margin profile toward 13% by FY30E</li>
+    <li><strong>Data Economy Infrastructure:</strong> India's data centre boom (~3x capacity growth by 2027) creates demand for Smart Infrastructure segment solutions</li>
+  </ul>
+
+  <div class="subsection-title">Potential Catalysts — Upside &amp; Downside</div>
+  <ul>
+    <li><strong>(Upside) Mega-Order Wins:</strong> HSR (High-Speed Rail) or DFCC Phase 2 wins could add ₹500–₹800/share to intrinsic value per the DCF risk matrix</li>
+    <li><strong>(Upside) Margin Beat:</strong> If EBITDA margins reach 14% vs. modelled 13% by FY30E, the bull case DCF approaches ₹3,540 (Exit Multiple) — the only scenario with marginal upside from current prices</li>
+    <li><strong>(Downside) Loco Order Execution Delays:</strong> Rated as <span class="text-red">HIGH probability</span> risk by the model, with –₹500 to –₹800/share impact</li>
+    <li><strong>(Downside) India Capex Slowdown:</strong> Medium probability; –₹400 to –₹600/share impact</li>
+    <li><strong>(Downside) Rate Hike / WACC Rise:</strong> +100bps in WACC → ~₹150–₹250/share negative DCF impact</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-title">🎯 What Must Go Right to Justify ₹3,342</div>
+    <p>Per the DCF Verdict sheet, justifying the current price requires: <strong>~17% revenue CAGR</strong> (vs. base case 12.7%), exit <strong>EV/EBITDA of ~40x+</strong> (vs. global avg 14–18x), and <strong>flawless ₹26,200 Cr loco order delivery</strong>. This is a high-conviction bull scenario — possible, but not the base case. Even in the bull case, most DCF methods imply either marginal upside or moderate downside.</p>
+  </div>
+</div>
+
+<!-- ── SECTION 6 ── -->
+<div class="section">
+  <div class="section-title"><span class="section-num">06</span> DCF Valuation and Recommendation</div>
+
+  <div class="note-box">
+    <strong>DCF Model by Yatharth Bhatt (03 March 2026):</strong> All figures in INR Crores. WACC: 12.5% | Terminal Growth (Perpetuity): 5.5% | Exit Multiple: 28x EV/EBITDA | Net Cash Bridge: ₹4,500 Cr | Shares Outstanding: 36.68 Cr | Post-energy-demerger base. FY = April–March from FY26 onwards.
+  </div>
+
+  <div class="subsection-title" style="margin-top:16px">WACC Derivation</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Component</th><th>Value</th><th>Source / Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Risk-Free Rate (India 10Y G-Sec)</td><td>7.00%</td><td>RBI / Bloomberg, Mar 2026</td></tr>
+        <tr><td>Equity Risk Premium (India)</td><td>6.50%</td><td>Damodaran 2025 / Morgan Stanley</td></tr>
+        <tr><td>Beta (Levered, 3Y vs. Nifty 50)</td><td>0.90</td><td>Bloomberg / NSE — Capital goods lower beta</td></tr>
+        <tr><td>Cost of Equity (CAPM)</td><td class="text-red"><strong>12.85%</strong></td><td>= 7% + 0.90 × 6.5%</td></tr>
+        <tr><td>After-tax Cost of Debt</td><td>6.38%</td><td>Pre-tax 8.5% × (1–25%); near debt-free</td></tr>
+        <tr><td>Debt Weight / Equity Weight</td><td>1.2% / 98.8%</td><td>Equity-funded balance sheet</td></tr>
+        <tr class="dcf-row-highlight"><td>WACC (Model)</td><td><strong>12.5%</strong></td><td>Rounded; Ke nearly sole driver</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection-title">DCF Free Cash Flow Projection</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Line Item (₹ Cr)</th><th>FY26E</th><th>FY27E</th><th>FY28E</th><th>FY29E</th><th>FY30E</th></tr></thead>
+      <tbody>
+        <tr><td>Revenue</td><td>19,244</td><td>21,746</td><td>24,355</td><td>26,791</td><td>29,202</td></tr>
+        <tr><td>EBITDA</td><td>2,213</td><td>2,610</td><td>3,044</td><td>3,429</td><td>3,796</td></tr>
+        <tr><td>EBITDA Margin</td><td>11.5%</td><td>12.0%</td><td>12.5%</td><td>12.8%</td><td>13.0%</td></tr>
+        <tr><td>Less: D&amp;A</td><td>(385)</td><td>(435)</td><td>(487)</td><td>(536)</td><td>(584)</td></tr>
+        <tr><td>EBIT (NOPAT pre-tax)</td><td>1,828</td><td>2,175</td><td>2,557</td><td>2,893</td><td>3,212</td></tr>
+        <tr><td>Less: Tax @ 25%</td><td>(457)</td><td>(544)</td><td>(639)</td><td>(723)</td><td>(803)</td></tr>
+        <tr><td>NOPAT</td><td>1,371</td><td>1,631</td><td>1,918</td><td>2,170</td><td>2,409</td></tr>
+        <tr><td>Add: D&amp;A</td><td>385</td><td>435</td><td>487</td><td>536</td><td>584</td></tr>
+        <tr><td>Less: CapEx (3% of Rev)</td><td>(577)</td><td>(652)</td><td>(731)</td><td>(804)</td><td>(876)</td></tr>
+        <tr><td>Less: Δ Working Capital</td><td>(286)</td><td>(375)</td><td>(391)</td><td>(365)</td><td>(362)</td></tr>
+        <tr class="dcf-row-highlight"><td><strong>Free Cash Flow to Firm (FCFF)</strong></td><td><strong>893</strong></td><td><strong>1,038</strong></td><td><strong>1,283</strong></td><td><strong>1,537</strong></td><td><strong>1,755</strong></td></tr>
+        <tr><td>Discount Factor (WACC 12.5%)</td><td>0.8889</td><td>0.7901</td><td>0.7023</td><td>0.6243</td><td>0.5549</td></tr>
+        <tr><td>PV of FCFF</td><td>793</td><td>820</td><td>901</td><td>959</td><td>974</td></tr>
+      </tbody>
+      <tfoot><tr><td><strong>Sum of PV of FCFs (FY26–FY30E)</strong></td><td colspan="4"></td><td><strong>₹4,448 Cr</strong></td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="subsection-title">Terminal Value &amp; Equity Valuation</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Method</th><th>Terminal Value (PV)</th><th>Enterprise Value</th><th>+ Net Cash</th><th>Equity Value</th><th>Fair Value / Share</th></tr></thead>
+      <tbody>
+        <tr><td>Perpetuity Growth (g = 5.5%)</td><td>₹14,682 Cr</td><td>₹19,131 Cr</td><td>₹4,500 Cr</td><td>₹23,631 Cr</td><td class="text-red"><strong>₹644</strong></td></tr>
+        <tr><td>Exit Multiple (28x EV/EBITDA FY30)</td><td>₹58,986 Cr</td><td>₹63,435 Cr</td><td>₹4,500 Cr</td><td>₹67,935 Cr</td><td class="text-gold"><strong>₹1,852</strong></td></tr>
+        <tr class="dcf-row-highlight"><td><strong>Blended DCF (50:50)</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>₹1,248</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert-box" style="margin-top:12px">
+    <div class="alert-title">⚠ Note on Perpetuity vs. Exit Multiple Divergence</div>
+    <p>The large gap between the Perpetuity method (₹644/share) and Exit Multiple method (₹1,852/share) reflects the sensitivity to terminal value assumptions. The perpetuity method is more conservative and theoretically rigorous; the exit multiple is more aligned with prevailing market sentiment for Indian capital goods stocks. The Cover sheet's "Base Case" range of ₹1,896–₹2,784 represents scenario-weighted results across different growth and margin assumptions — higher than the single-scenario DCF model output of ₹1,248 blended.</p>
+  </div>
+
+  <div class="subsection-title">Scenario Analysis — DCF Fair Values</div>
+
+  <div class="scenario-grid">
+    <div class="scenario-card bear">
+      <div class="s-label">Bear Case</div>
+      <div class="s-value">₹1,553</div>
+      <div class="s-delta" style="color:var(--red)">–54% from ₹3,342</div>
+      <div class="s-assumptions">Rev CAGR 8%<br>EBITDA Margin 10%<br>WACC 14%</div>
+    </div>
+    <div class="scenario-card base">
+      <div class="s-label">Base Case</div>
+      <div class="s-value">₹2,340</div>
+      <div class="s-delta" style="color:#856404">–30% from ₹3,342</div>
+      <div class="s-assumptions">Rev CAGR 12.7%<br>EBITDA Margin 13%<br>WACC 12.5%</div>
+    </div>
+    <div class="scenario-card bull">
+      <div class="s-label">Bull Case</div>
+      <div class="s-value">₹3,540</div>
+      <div class="s-delta" style="color:#2e7d32">+6% from ₹3,342 (Exit)</div>
+      <div class="s-assumptions">Rev CAGR 17%<br>EBITDA Margin 14%<br>WACC 11%</div>
+    </div>
+  </div>
+
+  <div class="table-wrap" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Valuation Method</th><th>Bear Case</th><th>Base Case</th><th>Bull Case</th><th>Current Price</th><th>vs. Base Case</th></tr></thead>
+      <tbody>
+        <tr><td>DCF — Perpetuity Growth (5.5%)</td><td>₹1,487</td><td>₹1,896</td><td>₹2,470</td><td>₹3,342</td><td class="text-red">–43%</td></tr>
+        <tr><td>DCF — Exit Multiple (28x EV/EBITDA)</td><td>₹1,618</td><td>₹2,784</td><td>₹3,540</td><td>₹3,342</td><td class="text-red">–17%</td></tr>
+        <tr class="dcf-row-highlight"><td><strong>Blended DCF Fair Value</strong></td><td><strong>₹1,553</strong></td><td><strong>₹2,340</strong></td><td><strong>₹3,005</strong></td><td><strong>₹3,342</strong></td><td class="text-red"><strong>–30%</strong></td></tr>
+        <tr><td>Implied P/E on FY30E EPS</td><td>27x</td><td>35x</td><td>45x</td><td>69x (LTM)</td><td>Market pricing perfection</td></tr>
+        <tr><td>Implied EV/EBITDA on FY30E</td><td>19x</td><td>24x</td><td>31x</td><td>40x+ (implied)</td><td>Premium vs. global peers</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection-title">Sensitivity Analysis — Perpetuity Method (Fair Value ₹/share)</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Term. Growth \ WACC →</th><th>10.5%</th><th>11.5%</th><th>12.5%</th><th>13.5%</th><th>14.5%</th><th>15.5%</th></tr></thead>
+      <tbody>
+        <tr><td>4.0%</td><td>716</td><td>632</td><td>569</td><td>519</td><td>478</td><td>445</td></tr>
+        <tr><td>4.5%</td><td>757</td><td>662</td><td>591</td><td>536</td><td>492</td><td>456</td></tr>
+        <tr><td>5.0%</td><td>806</td><td>696</td><td>616</td><td>555</td><td>506</td><td>467</td></tr>
+        <tr class="dcf-row-highlight"><td><strong>5.5% (Base)</strong></td><td>864</td><td>736</td><td><strong>644</strong></td><td>576</td><td>523</td><td>480</td></tr>
+        <tr><td>6.0%</td><td>935</td><td>783</td><td>677</td><td>600</td><td>541</td><td>494</td></tr>
+        <tr><td>6.5%</td><td>1,024</td><td>839</td><td>715</td><td>627</td><td>561</td><td>510</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin-top:6px">Highlighted cell = Base Case assumption (WACC 12.5%, g 5.5%). Note: No combination in the above table yields a fair value anywhere near ₹3,342 under the perpetuity method.</p>
+
+  <div class="subsection-title">Sensitivity Analysis — Exit Multiple Method (Fair Value ₹/share)</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Exit EV/EBITDA \ WACC →</th><th>10.5%</th><th>11.5%</th><th>12.5%</th><th>13.5%</th><th>14.5%</th><th>15.5%</th></tr></thead>
+      <tbody>
+        <tr><td>20x</td><td>1,507</td><td>1,448</td><td>1,393</td><td>1,340</td><td>1,289</td><td>1,242</td></tr>
+        <tr><td>24x</td><td>1,759</td><td>1,689</td><td>1,622</td><td>1,559</td><td>1,500</td><td>1,443</td></tr>
+        <tr class="dcf-row-highlight"><td><strong>28x (Base)</strong></td><td>2,010</td><td>1,929</td><td><strong>1,852</strong></td><td>1,779</td><td>1,710</td><td>1,644</td></tr>
+        <tr><td>32x</td><td>2,261</td><td>2,169</td><td>2,082</td><td>1,999</td><td>1,920</td><td>1,846</td></tr>
+        <tr><td>36x</td><td>2,513</td><td>2,409</td><td>2,312</td><td>2,219</td><td>2,131</td><td>2,047</td></tr>
+        <tr><td>40x</td><td>2,764</td><td>2,650</td><td>2,541</td><td>2,439</td><td>2,341</td><td>2,249</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin-top:6px">To approach ₹3,342: Requires 40x+ exit multiple at ~10.5% WACC — both extreme assumptions simultaneously.</p>
+
+  <!-- FINAL RECOMMENDATION -->
+  <div class="final-verdict">
+    <div class="final-verdict-top">
+      <div>
+        <div class="final-verdict-label">Recommendation</div>
+        <div class="final-verdict-value">HOLD / REDUCE</div>
+        <div style="color:rgba(255,255,255,0.5);font-size:12px;margin-top:4px">Do Not Initiate New Longs</div>
+      </div>
+      <div class="final-verdict-divider"></div>
+      <div>
+        <div class="final-verdict-label">DCF Base Fair Value</div>
+        <div class="final-verdict-value">₹2,340</div>
+        <div style="color:rgba(255,255,255,0.5);font-size:12px;margin-top:4px">~30% Downside · 18–24 Month Horizon</div>
+      </div>
+      <div class="final-verdict-divider"></div>
+      <div class="final-verdict-points">
+        <div class="final-verdict-point">DCF base case: 30% downside across all methods</div>
+        <div class="final-verdict-point">Bull case (Exit Multiple) ≈ ₹3,540 — only +6% upside</div>
+        <div class="final-verdict-point">Stock needs 17%+ CAGR to justify market price</div>
+        <div class="final-verdict-point">Qualitative moat intact; valuation is the sole issue</div>
+        <div class="final-verdict-point">Accumulate on dips toward ₹2,400–₹2,600 range</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>Key Risks per DCF Model:</strong> (1) Loco order execution delays (HIGH probability — ₹26,200 Cr, –₹500 to –₹800/share); (2) India capex slowdown (Medium — –₹400 to –₹600/share); (3) Margin compression from commodity/labour costs (Medium — –₹200 to –₹350/share); (4) Chinese OEM competition in Smart Infrastructure (Medium — –₹150 to –₹300/share); (5) WACC +100bps → –₹150 to –₹250/share. Bull upside: Mega-order wins (HSR, DFCC) +₹500 to +₹800/share.
+  </div>
+</div>
+
+<!-- ── SECTION 7 ── -->
+<div class="section">
+  <div class="section-title"><span class="section-num">07</span> Conclusion</div>
+
+  <p>Siemens India Limited is an <strong>exceptional business in a structurally attractive market</strong> — but at ₹3,341.60, the stock is trading at valuations that price in a near-perfect future. The DCF analysis by Yatharth Bhatt is clear-eyed and rigorous: the <strong>base case fair value of ₹2,340 implies ~30% downside</strong>, and even the bull case (Exit Multiple, Rev CAGR 17%) yields only ₹3,540 — just +6% upside from current levels.</p>
+
+  <p>The qualitative story remains compelling: ROCE of 27.4%, a debt-free balance sheet with ₹4,500 Cr net cash, post-demerger clarity of business focus, and India's multi-decade infrastructure investment supercycle as a structural tailwind. The <strong>₹26,200 Cr loco order</strong> is a significant revenue anchor, but the DCF risk matrix rates execution risk on this as <span class="text-red">HIGH probability</span>.</p>
+
+  <p>The two structural changes — Energy demerger and fiscal year transition to April–March — create a period of earnings base adjustment and investor recalibration. The stock's 39% correction from ₹5,520 to ₹3,342 has improved the fundamental case meaningfully, but not enough to warrant fresh buying. The <strong>accumulation zone of ₹2,400–₹2,600</strong> would offer a more attractive risk-reward, pricing in the base DCF with some margin of safety, and bringing the exit multiple bull case to 30%+ upside.</p>
+
+  <div class="callout" style="background:linear-gradient(135deg,#fff8e1,#fffde7);border-color:#ffc107;">
+    <div class="callout-title" style="color:#856404">⚖ Final Verdict: HOLD / REDUCE — Target Entry: ₹2,400–₹2,600 | DCF Fair Value: ₹2,340 (Base) to ₹3,540 (Bull)</div>
+    <p>Siemens India warrants a position in a long-term industrial portfolio, but <strong>not at current prices</strong>. Existing holders should reduce on rallies toward ₹3,500+. New investors should await a correction toward the DCF base fair value range of ₹2,340–₹2,784, where the risk-reward improves materially. The business quality is not in question — the valuation is.</p>
+  </div>
+</div>
+
+</div><!-- /report-body -->
+
+<!-- ══ FOOTER ══ -->
+<div style="background:var(--navy);padding:20px 52px;color:rgba(255,255,255,0.4);font-size:10.5px;line-height:1.7;border-top:3px solid var(--gold)">
+  <strong style="color:rgba(255,255,255,0.6)">Disclaimer:</strong> This equity research report is prepared for informational and educational purposes only. It does not constitute investment advice, a solicitation, or an offer to buy or sell securities. The DCF valuation model is authored by Yatharth Bhatt; the equity analysis narrative is authored by Yatharth Bhatt. All projections are estimates based on publicly available data as of 03-March-2026. Actual results may differ materially. Past performance is not indicative of future results. Investors should conduct their own due diligence and consult a SEBI-registered investment adviser before making investment decisions.
+  <br><br>
+  <strong style="color:rgba(255,255,255,0.6)">Data Sources:</strong> Screener.in, BSE/NSE Filings, Siemens India Annual Reports, Bloomberg, Damodaran ERP Database &nbsp;|&nbsp; <strong style="color:rgba(255,255,255,0.6)">Fiscal Year Note:</strong> Siemens India FY = Oct–Sep through FY25; April–March from FY26 onwards &nbsp;|&nbsp; <strong style="color:rgba(255,255,255,0.6)">Demerger Note:</strong> Energy business demerged effective 1 March 2025; all forward projections on post-demerger basis
+</div>
+
+</div><!-- /page-wrapper -->
+</body>
+</html>

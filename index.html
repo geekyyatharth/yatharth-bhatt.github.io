@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yatharth Bhatt | Research Analyst & Quant Finance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0b1f3a;--blue:#1a4a7a;--accent:#2a7de1;--gold:#c9a84c;--gold2:#f0d080;--light:#f4f7fc;--white:#fff;--text:#1e2a3a;--muted:#6b7c93;--border:#dde5f0;--green:#22c55e;--red:#ef4444}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,sans-serif;background:var(--light);color:var(--text);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,31,58,.97);backdrop-filter:blur(16px);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;border-bottom:1px solid rgba(255,255,255,.07)}
+.nb{font-weight:800;font-size:1.05rem;color:#fff}.nb span{color:var(--gold)}
+.nl{display:flex;gap:28px;list-style:none}.nl a{color:rgba(255,255,255,.62);text-decoration:none;font-size:.84rem;font-weight:500;transition:color .2s}.nl a:hover{color:var(--gold)}
+.nh{background:var(--gold);color:var(--navy);padding:8px 22px;border-radius:7px;font-weight:700;font-size:.82rem;text-decoration:none}
+@media(max-width:768px){nav{padding:0 20px}.nl{display:none}}
+.hero{min-height:100vh;padding:130px 24px 90px;background:linear-gradient(160deg,#050e1c 0%,#0c1e3c 45%,#0b1f3a 100%);display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:60px 60px}
+.hgl{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(42,125,225,.12) 0%,transparent 68%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.hc{position:relative;z-index:1;max-width:820px}
+.hbadge{display:inline-flex;align-items:center;gap:9px;background:rgba(201,168,76,.11);border:1px solid rgba(201,168,76,.3);color:var(--gold);padding:8px 22px;border-radius:100px;font-size:.76rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;margin-bottom:30px}
+.hbadge::before{content:'●';font-size:7px;animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,7.5vw,5rem);font-weight:800;color:#fff;line-height:1.06;letter-spacing:-1.5px;margin-bottom:18px}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-role{font-size:clamp(.95rem,2.2vw,1.15rem);color:rgba(255,255,255,.5);margin-bottom:22px}.hero-role strong{color:rgba(255,255,255,.82);font-weight:600}
+.hero-pitch{max-width:580px;margin:0 auto 40px;font-size:.97rem;color:rgba(255,255,255,.44);line-height:1.85}
+.hbtns{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+.btng{background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:9px;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .22s}
+.btng:hover{background:var(--gold2);transform:translateY(-2px)}
+.btno{background:transparent;color:rgba(255,255,255,.82);padding:14px 32px;border-radius:9px;font-weight:600;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.22);transition:all .22s}
+.btno:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.05)}
+.hstats{display:flex;justify-content:center;gap:52px;flex-wrap:wrap;margin-top:64px;padding-top:46px;border-top:1px solid rgba(255,255,255,.08)}
+.hs{text-align:center}.hsn{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;color:var(--gold);line-height:1}
+.hsl{font-size:.7rem;color:rgba(255,255,255,.38);margin-top:5px;text-transform:uppercase;letter-spacing:.9px}
+section{padding:92px 24px}.wrap{max-width:1100px;margin:0 auto}
+.sl{font-size:.71rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:9px}
+.st{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:var(--navy);margin-bottom:12px}
+.ss{font-size:.975rem;color:var(--muted);max-width:540px;line-height:1.75}.sh{margin-bottom:56px}
+#about{background:#fff}
+.ag{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+.as p{font-size:.975rem;color:#374151;line-height:1.88;margin-bottom:16px}
+.as strong{color:var(--navy)}.as em{color:var(--blue);font-style:normal;font-weight:600}
+.achips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.ach{background:var(--light);border:1px solid var(--border);color:var(--blue);padding:5px 15px;border-radius:100px;font-size:.79rem;font-weight:600}
+.pcard{background:linear-gradient(150deg,#0b1f3a,#183562);border-radius:18px;padding:36px}
+.pct{font-size:.73rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.pr{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.07)}.pr:last-child{border-bottom:none;padding-bottom:0}
+.pri{font-size:1.1rem;flex-shrink:0;margin-top:2px}.prm{font-size:.88rem;font-weight:600;color:#fff}.prs{font-size:.78rem;color:rgba(255,255,255,.48);margin-top:2px}
+@media(max-width:768px){.ag{grid-template-columns:1fr}}
+#skills{background:var(--light)}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.skc{background:#fff;border:1px solid var(--border);border-radius:14px;padding:26px;transition:all .22s}.skc:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(26,74,122,.09)}
+.ski{font-size:1.55rem;margin-bottom:12px}.skn{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:12px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}.p{padding:3px 11px;border-radius:100px;font-size:.75rem;font-weight:600}
+.pb{background:#e8f0fe;color:#1a4a8a}.pg{background:#fdf5e0;color:#8a6a10}.pge{background:#e6f5ee;color:#166534}
+
+/* ═══════════════════════════ 5 WORK CARDS ═══════════════════════════ */
+#work{background:#fff}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.wfull{grid-column:1/-1}
+
+.wcard{background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .28s,box-shadow .28s,border-color .28s;position:relative}
+.wcard:hover{transform:translateY(-7px);box-shadow:0 24px 60px rgba(11,31,58,.13);border-color:rgba(42,125,225,.25)}
+.wcard:hover .warr{transform:translate(3px,-3px)}
+
+/* Banner */
+.wbanner{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.wbh{height:200px}.wbn{height:160px}
+.ban1{background:linear-gradient(135deg,#020810 0%,#071428 50%,#0d1f38 100%)}
+.ban2{background:linear-gradient(135deg,#0d2b1a 0%,#1a5230 100%)}
+.ban3{background:linear-gradient(135deg,#0b1f3a 0%,#1a4a7a 100%)}
+.ban4{background:linear-gradient(135deg,#08051a 0%,#150d30 50%,#1e1248 100%)}
+.ban5{background:linear-gradient(135deg,#2a1505 0%,#5a2e0a 100%)}
+
+.wbg{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding-right:32px;pointer-events:none}
+.wbgn{font-family:'Playfair Display',serif;font-size:6.5rem;font-weight:800;line-height:1;opacity:.07;color:#fff;letter-spacing:-4px;user-select:none}
+.wbgi{font-size:5rem;opacity:.08}
+
+.wbc{position:relative;z-index:1;padding:20px 26px 18px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.wbtype{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;opacity:.6;color:#fff}
+.wbtitle{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:3px}
+.wfull .wbtitle{font-size:1.65rem}
+.wbsub{font-size:.74rem;color:rgba(255,255,255,.46)}
+.wchip{display:inline-flex;align-items:center;gap:5px;padding:5px 13px;border-radius:100px;font-size:.69rem;font-weight:700;flex-shrink:0;align-self:flex-start;margin-top:4px}
+.c1{background:rgba(0,245,212,.12);color:#00e5c4;border:1px solid rgba(0,245,212,.22)}
+.c2{background:rgba(34,197,94,.13);color:#22c55e;border:1px solid rgba(34,197,94,.25)}
+.c3{background:rgba(230,126,34,.18);color:#f5a623;border:1px solid rgba(230,126,34,.32)}
+.c4{background:rgba(168,85,247,.18);color:#c084fc;border:1px solid rgba(168,85,247,.28)}
+.c5{background:rgba(201,168,76,.18);color:var(--gold);border:1px solid rgba(201,168,76,.32)}
+
+/* Stat strip (card 1 only) */
+.wstrip{display:flex;gap:0;border-bottom:1px solid var(--border);background:#fafcff}
+.wst{flex:1;padding:13px 16px;text-align:center;border-right:1px solid var(--border)}.wst:last-child{border-right:none}
+.wstn{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;line-height:1;margin-bottom:3px}
+.wstn.pos{color:var(--green)}.wstn.neg{color:var(--red)}.wstn.neu{color:var(--accent)}.wstn.gld{color:var(--gold)}.wstn.muted{color:var(--muted)}
+.wstl{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.7px}
+
+/* Body */
+.wbody{padding:22px 26px;flex:1;display:flex;flex-direction:column}
+.wnum{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:.72rem;font-weight:800;margin-bottom:12px}
+.wtit{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:5px;line-height:1.3}
+.whook{font-size:.82rem;font-weight:600;color:var(--accent);margin-bottom:10px}
+.wdesc{font-size:.855rem;color:#4a5568;line-height:1.74;flex:1}
+.wtags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.wtag{background:var(--light);border:1px solid var(--border);color:var(--blue);padding:3px 10px;border-radius:100px;font-size:.71rem;font-weight:600}
+
+/* CTA */
+.wcta{display:flex;align-items:center;justify-content:space-between;padding:13px 26px;border-top:1px solid var(--border);background:#fafcff}
+.wctal{font-size:.82rem;font-weight:700}
+.warr{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:700;transition:transform .22s}
+.an{background:var(--navy);color:#fff}.aa{background:var(--accent);color:#fff}
+.ag2{background:#166534;color:#fff}.ap{background:#7c3aed;color:#fff}.ago{background:var(--gold);color:var(--navy)}
+
+/* Cert */
+#certifications{background:var(--light)}
+.cwrap{background:linear-gradient(135deg,#0a1828,#173460);border-radius:20px;padding:52px;display:grid;grid-template-columns:auto 1fr auto;gap:44px;align-items:center}
+@media(max-width:768px){.cwrap{grid-template-columns:1fr;padding:32px 24px}}
+.cseal{width:88px;height:88px;border-radius:50%;background:rgba(201,168,76,.12);border:2px solid rgba(201,168,76,.38);display:flex;align-items:center;justify-content:center;font-size:2.7rem;flex-shrink:0}
+.ci{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.ct{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3}
+.cb{font-size:.87rem;color:rgba(255,255,255,.52);line-height:1.72;margin-bottom:18px}
+.cpills{display:flex;flex-wrap:wrap;gap:7px}
+.cp{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.68);padding:4px 13px;border-radius:100px;font-size:.75rem}
+.cbtn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:11px 24px;border-radius:9px;background:rgba(201,168,76,.14);border:1px solid rgba(201,168,76,.38);color:var(--gold);font-size:.85rem;font-weight:700;text-decoration:none;transition:all .2s}
+.cbtn:hover{background:rgba(201,168,76,.26)}
+.cstats{display:flex;flex-direction:column;gap:14px;min-width:170px}
+.cstat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:15px 20px;text-align:center}
+.csn{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--gold)}
+.csl{font-size:.68rem;color:rgba(255,255,255,.42);text-transform:uppercase;letter-spacing:.8px;margin-top:3px}
+
+#contact{background:linear-gradient(150deg,#060f1e,#0d2144);padding:92px 24px}
+#contact .sl{color:var(--gold)}#contact .st{color:#fff}#contact .ss{color:rgba(255,255,255,.48)}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:54px}
+@media(max-width:768px){.cg{grid-template-columns:1fr}}
+.cls{display:flex;flex-direction:column;gap:13px}
+.cl{display:flex;align-items:center;gap:16px;padding:17px 22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:12px;text-decoration:none;transition:all .2s}
+.cl:hover{background:rgba(255,255,255,.09);border-color:rgba(201,168,76,.33)}
+.cli{font-size:1.25rem}.cll{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.38)}
+.clv{font-size:.9rem;color:#fff;font-weight:500}
+.cbox{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:36px}
+.avail{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--green);font-weight:600;margin-bottom:18px}
+.avail::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+.cbox h3{font-size:1.1rem;color:#fff;font-weight:700;margin-bottom:8px}
+.cbox p{font-size:.86rem;color:rgba(255,255,255,.48);line-height:1.72;margin-bottom:20px}
+.croles{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
+.crole{background:rgba(42,125,225,.12);border:1px solid rgba(42,125,225,.22);color:rgba(255,255,255,.68);padding:4px 13px;border-radius:100px;font-size:.74rem}
+footer{background:#030810;padding:24px;text-align:center;font-size:.78rem;color:rgba(255,255,255,.22)}
+.fi{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}.fi.vis{opacity:1;transform:translateY(0)}
+.fi2{opacity:0;transform:translateY(22px);transition:opacity .55s .1s ease,transform .55s .1s ease}.fi2.vis{opacity:1;transform:translateY(0)}
+.fi3{opacity:0;transform:translateY(22px);transition:opacity .55s .2s ease,transform .55s .2s ease}.fi3.vis{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.wgrid{grid-template-columns:1fr}.wfull{grid-column:auto}}
+@media(max-width:600px){.wstrip{flex-wrap:wrap}.wst{min-width:50%}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nb">Yatharth <span>Bhatt</span></div>
+  <ul class="nl">
+    <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+    <li><a href="#work">My Work</a></li><li><a href="#certifications">Certificate</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:geekyyatharth90@gmail.com" class="nh">Hire Me</a>
+</nav>
+
+<section class="hero">
+  <div class="hg"></div><div class="hgl"></div>
+  <div class="hc">
+    <div class="hbadge">NISM-Series XV · Certified Research Analyst · SEBI</div>
+    <h1>Yatharth<br><em>Bhatt</em></h1>
+    <p class="hero-role"><strong>Equity Research</strong> &nbsp;·&nbsp; <strong>Quantitative Finance</strong> &nbsp;·&nbsp; <strong>Fintech</strong></p>
+    <p class="hero-pitch">MTech CS engineer turned market analyst — blending Python, ML, and financial modeling to build quant strategies and produce institutional-quality equity research on Indian markets.</p>
+    <div class="hbtns">
+      <a href="#work" class="btng">📊 See My Work</a>
+      <a href="#certifications" class="btno">🏆 View Certificate</a>
+    </div>
+    <div class="hstats">
+      <div class="hs"><div class="hsn">+312%</div><div class="hsl">Portfolio vs Nifty +97%</div></div>
+      <div class="hs"><div class="hsn">66.75</div><div class="hsl">NISM Score / 100</div></div>
+      <div class="hs"><div class="hsn">+18.2%</div><div class="hsl">Jensen's Alpha</div></div>
+      <div class="hs"><div class="hsn">2028</div><div class="hsl">Cert Valid Until</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="ag">
+      <div class="as fi">
+        <div class="sl">My Story</div>
+        <h2 class="st">Where Code Meets Capital Markets</h2>
+        <p>It started at my father's side — watching him track the markets every morning. While classmates studied textbooks, I was learning <strong>candlestick patterns, support/resistance levels, and RSI.</strong> Markets weren't a subject to me. They were a language.</p>
+        <p>That obsession led me to <em>self-teach</em> fundamental analysis, financial modeling, DCF valuation — and eventually clear the <strong>NISM-Series XV Research Analyst exam</strong>, the certification SEBI requires for equity analysts in India.</p>
+        <p>Today, with an <strong>MTech in CS from DAIICT</strong>, I've added Python backtesting frameworks, quantitative strategy design, and ML to my arsenal. I don't just analyse companies — I <strong>build systems to find opportunities at scale.</strong></p>
+        <div class="achips">
+          <span class="ach">Equity Research</span><span class="ach">Algo Trading</span><span class="ach">Python / ML</span>
+          <span class="ach">DCF Valuation</span><span class="ach">Backtesting</span><span class="ach">Technical Analysis</span>
+        </div>
+      </div>
+      <div class="pcard fi2">
+        <div class="pct">Profile Snapshot</div>
+        <div class="pr"><div class="pri">🏛️</div><div><div class="prm">M.Tech — Computer Science & Engineering</div><div class="prs">DAIICT, Gandhinagar · Final Semester · 2025</div></div></div>
+        <div class="pr"><div class="pri">⚙️</div><div><div class="prm">B.E — Computer Engineering</div><div class="prs">GTU, Gujarat · CGPA 7.85 · 2024</div></div></div>
+        <div class="pr"><div class="pri">📜</div><div><div class="prm">NISM-Series XV Certified</div><div class="prs">Score 66.75/100 · Valid Dec 2025 – Dec 2028</div></div></div>
+        <div class="pr"><div class="pri">🐍</div><div><div class="prm">Quant Stack</div><div class="prs">Backtrader · Backtesting.py · QuantStats</div></div></div>
+        <div class="pr"><div class="pri">📍</div><div><div class="prm">Ahmedabad – Gandhinagar, Gujarat</div><div class="prs">Open to Mumbai, Bangalore & Remote</div></div></div>
+        <div class="pr"><div class="pri">⚽</div><div><div class="prm">Football — Coach & Player</div><div class="prs">Inter-university level, GTU</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sh fi"><div class="sl">Expertise</div><h2 class="st">Skills & Competencies</h2><p class="ss">A rare combination of financial market knowledge and engineering skills most analysts simply don't have.</p></div>
+    <div class="sg">
+      <div class="skc fi"><div class="ski">📊</div><div class="skn">Equity Research & Analysis</div><div class="pills"><span class="p pg">Fundamental Analysis</span><span class="p pg">Technical Analysis</span><span class="p pg">DCF Valuation</span><span class="p pg">Peer Comparables</span></div></div>
+      <div class="skc fi2"><div class="ski">⚙️</div><div class="skn">Quantitative Finance</div><div class="pills"><span class="p pb">Backtrader</span><span class="p pb">Backtesting.py</span><span class="p pb">QuantStats</span><span class="p pb">Strategy Optimization</span></div></div>
+      <div class="skc fi3"><div class="ski">🐍</div><div class="skn">Programming & Data</div><div class="pills"><span class="p pb">Python</span><span class="p pb">Pandas</span><span class="p pb">NumPy</span><span class="p pb">Scikit-learn</span></div></div>
+      <div class="skc fi"><div class="ski">🧠</div><div class="skn">Machine Learning & AI</div><div class="pills"><span class="p pge">Supervised Learning</span><span class="p pge">Time-Series Analysis</span><span class="p pge">Multi-Agent Systems</span></div></div>
+      <div class="skc fi2"><div class="ski">📈</div><div class="skn">Market Knowledge</div><div class="pills"><span class="p pg">Chart Patterns</span><span class="p pg">Indicators</span><span class="p pg">SEBI Regulations</span><span class="p pg">Sector Analysis</span></div></div>
+      <div class="skc fi3"><div class="ski">🛠️</div><div class="skn">Tools</div><div class="pills"><span class="p pb">Excel (Fin. Models)</span><span class="p pb">TradingView</span><span class="p pb">Screener.in</span><span class="p pb">Jupyter</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ 5 WORK CARDS ══════════════════════════ -->
+<section id="work">
+  <div class="wrap">
+    <div class="sh fi">
+      <div class="sl">My Work</div>
+      <h2 class="st">Research, Models & Quant Projects</h2>
+      <p class="ss">Five pieces of real, original work. Click any card to open the full report, model, or certificate in a new tab.</p>
+    </div>
+    <div class="wgrid">
+
+      <!-- CARD 1 — ALPHA PORTFOLIO (full width hero) -->
+      <a href="portfolio_research_report__1_.html" target="_blank" rel="noopener" class="wcard wfull fi">
+        <div class="wbanner ban1 wbh">
+          <div class="wbg"><div class="wbgn">+312%</div></div>
+          <div class="wbc">
+            <div>
+              <div class="wbtype">Quantitative Portfolio Analysis · Nifty 50 Benchmark</div>
+              <div class="wbtitle">Alpha Portfolio vs Nifty 50 — Why Research Beats Random Investing</div>
+              <div class="wbsub">Tata Power · CG Power · Sun Pharma &nbsp;·&nbsp; January 2020 – December 2024</div>
+            </div>
+            <span class="wchip c1">⚡ +18.2% Jensen's Alpha</span>
+          </div>
+        </div>
+        <div class="wstrip">
+          <div class="wst"><div class="wstn pos">+312%</div><div class="wstl">Portfolio 5Y Return</div></div>
+          <div class="wst"><div class="wstn muted">+97%</div><div class="wstl">Nifty 50 Return</div></div>
+          <div class="wst"><div class="wstn neu">1.84</div><div class="wstl">Sharpe Ratio</div></div>
+          <div class="wst"><div class="wstn pos">32.8%</div><div class="wstl">Portfolio CAGR</div></div>
+          <div class="wst"><div class="wstn gld">+18.2%</div><div class="wstl">Jensen's Alpha</div></div>
+          <div class="wst"><div class="wstn pos">63.4%</div><div class="wstl">Monthly Win Rate</div></div>
+        </div>
+        <div class="wbody">
+          <div class="wnum">1</div>
+          <div class="wtit">Why Random Investing Fails — And How Research Creates Real Wealth</div>
+          <div class="whook">The Nifty gave you +97% in 5 years. Research gave +312%. That gap is the cost of not thinking.</div>
+          <p class="wdesc">Most retail investors invest randomly — on tips, trending names, or gut feel. This report shows exactly what that costs you over time. A structured 3-stock portfolio (Tata Power, CG Power, Sun Pharma) — each picked through fundamental research — returned <strong>+312% in 5 years</strong> vs. the Nifty 50's <strong>+97%</strong>. Same market. Same period. Completely different outcome.<br><br>The full report analyses 25+ risk/return metrics: Sharpe, Sortino, Calmar, VaR, CVaR, drawdown duration, monthly return heatmaps, rolling volatility, and attribution by individual stock — all benchmarked against Nifty 50. The message is clear: randomness doesn't build wealth. Research does.</p>
+          <div class="wtags">
+            <span class="wtag">QuantStats</span><span class="wtag">Sharpe Ratio</span><span class="wtag">Jensen's Alpha</span>
+            <span class="wtag">Drawdown Analysis</span><span class="wtag">Nifty 50 Benchmark</span>
+            <span class="wtag">Portfolio Attribution</span><span class="wtag">Monthly Heatmap</span><span class="wtag">VaR / CVaR</span>
+          </div>
+        </div>
+        <div class="wcta">
+          <span class="wctal" style="color:var(--accent)">Open Full Portfolio Analysis →</span>
+          <div class="warr aa">↗</div>
+        </div>
+      </a>
+
+      <!-- CARD 2 — DCF MODEL -->
+      <a href="Siemens_India_DCF_Valuation_YatharthBhatt.xlsx" download class="wcard fi">
+        <div class="wbanner ban2 wbn">
+          <div class="wbg"><div class="wbgi">📊</div></div>
+          <div class="wbc">
+            <div>
+              <div class="wbtype">Financial Model · Excel · DCF Valuation</div>
+              <div class="wbtitle">Siemens India — DCF Model</div>
+              <div class="wbsub">Intrinsic Value · Bull / Base / Bear Scenarios</div>
+            </div>
+            <span class="wchip c2">📥 Excel Download</span>
+          </div>
+        </div>
+        <div class="wbody">
+          <div class="wnum">2</div>
+          <div class="wtit">DCF Model — The Engine Behind Every Price Target</div>
+          <div class="whook">A price target without a model is just an opinion.</div>
+          <p class="wdesc">Every serious buy/sell call is backed by a number — and that number comes from a model. This Excel DCF builds Siemens India's intrinsic value from scratch: revenue projections, EBITDA margins, WACC, terminal value, and three scenarios with full sensitivity tables.<br><br>Download it, open it, and see exactly how an analyst turns a company's financials into a single intrinsic value estimate. This is the craft of valuation — the skill that separates analysts from commentators.</p>
+          <div class="wtags">
+            <span class="wtag">DCF</span><span class="wtag">WACC</span><span class="wtag">Terminal Value</span>
+            <span class="wtag">Sensitivity Tables</span><span class="wtag">EV/EBITDA</span><span class="wtag">Scenario Analysis</span>
+          </div>
+        </div>
+        <div class="wcta">
+          <span class="wctal" style="color:#166534">Download Excel Model ↓</span>
+          <div class="warr ag2">↓</div>
+        </div>
+      </a>
+
+      <!-- CARD 3 — EQUITY RESEARCH REPORT -->
+      <a href="siemens_hold_reduce__1_.html" target="_blank" rel="noopener" class="wcard fi2">
+        <div class="wbanner ban3 wbn">
+          <div class="wbg"><div class="wbgi">📄</div></div>
+          <div class="wbc">
+            <div>
+              <div class="wbtype">Equity Research Report · Capital Goods · NSE</div>
+              <div class="wbtitle">Siemens India — Hold / Reduce</div>
+              <div class="wbsub">NSE: SIEMENS · Full Coverage · 2024–25</div>
+            </div>
+            <span class="wchip c3">⚠ Hold / Reduce</span>
+          </div>
+        </div>
+        <div class="wbody">
+          <div class="wnum">3</div>
+          <div class="wtit">Equity Research — A Clear Picture for Everyone</div>
+          <div class="whook">Simple enough for non-geeks. Deep enough for seasoned analysts.</div>
+          <p class="wdesc">A good research report serves two audiences at once: the non-expert investor who needs a clear, honest answer (<em>should I buy this stock?</em>) and the professional analyst who needs to verify every claim. This report on Siemens India does both.<br><br>It covers business segments, financial ratios, DCF valuation, peer comparison vs ABB India & Honeywell, technical levels — and ends with a conviction call: <strong>Hold / Reduce</strong>, backed by stretched valuations vs near-term earnings visibility. No jargon without explanation. No claim without data.</p>
+          <div class="wtags">
+            <span class="wtag">Fundamental Analysis</span><span class="wtag">Technical Analysis</span>
+            <span class="wtag">Peer Comparison</span><span class="wtag">ROCE / Margins</span><span class="wtag">Management Analysis</span>
+          </div>
+        </div>
+        <div class="wcta">
+          <span class="wctal" style="color:var(--navy)">Open Research Report →</span>
+          <div class="warr an">↗</div>
+        </div>
+      </a>
+
+      <!-- CARD 4 — BACKTESTING -->
+      <a href="Backtesting_SIEMENS_2024_OptimizedReport.html" target="_blank" rel="noopener" class="wcard fi3">
+        <div class="wbanner ban4 wbn">
+          <div class="wbg"><div class="wbgi">📉</div></div>
+          <div class="wbc">
+            <div>
+              <div class="wbtype">Quant Strategy · Backtesting · Python</div>
+              <div class="wbtitle">Siemens.NS — Optimized Strategy</div>
+              <div class="wbsub">Backtrader + QuantStats · 2024 Data</div>
+            </div>
+            <span class="wchip c4">⚡ Quant Deep-Dive</span>
+          </div>
+        </div>
+        <div class="wbody">
+          <div class="wnum">4</div>
+          <div class="wtit">Backtesting — Every Ticker Has Its Own Personality</div>
+          <div class="whook">You can't use one strategy for every stock. This is how you find what works.</div>
+          <p class="wdesc">A momentum strategy that crushes it on a high-beta smallcap can destroy returns on a slow-moving largecap. This is why backtesting exists — it's the rigorous process of trial, error, and optimization to find what actually works for a specific ticker.<br><br>This report tests multiple strategies on Siemens NSE 2024 data, optimizes parameters, measures Sharpe, max drawdown, CAGR, win rate — then validates with walk-forward testing to check out-of-sample performance. The discipline to test before you trade. The mindset of a quant.</p>
+          <div class="wtags">
+            <span class="wtag">Backtrader</span><span class="wtag">QuantStats</span>
+            <span class="wtag">Walk-Forward Optimization</span><span class="wtag">Sharpe / Sortino</span><span class="wtag">Max Drawdown</span>
+          </div>
+        </div>
+        <div class="wcta">
+          <span class="wctal" style="color:#7c3aed">Open Backtesting Report →</span>
+          <div class="warr ap">↗</div>
+        </div>
+      </a>
+
+      <!-- CARD 5 — NISM CERTIFICATE -->
+      <a href="NISM_XV_certi-unlocked.pdf" target="_blank" rel="noopener" class="wcard fi3">
+        <div class="wbanner ban5 wbn">
+          <div class="wbg"><div class="wbgi">🏆</div></div>
+          <div class="wbc">
+            <div>
+              <div class="wbtype">Certification · SEBI · NISM · India</div>
+              <div class="wbtitle">NISM-Series XV Certificate</div>
+              <div class="wbsub">Research Analyst · Dec 2025 · Valid till Dec 2028</div>
+            </div>
+            <span class="wchip c5">✅ SEBI Certified</span>
+          </div>
+        </div>
+        <div class="wbody">
+          <div class="wnum">5</div>
+          <div class="wtit">NISM Certificate — The Commitment, Not Just the Credential</div>
+          <div class="whook">This isn't a line on a resume. It's a statement of what I'm building towards.</div>
+          <p class="wdesc">Most CS graduates never look at a balance sheet. I didn't just look — I studied the craft of securities research deeply enough to clear the exam that SEBI <em>legally requires</em> before you can publish research to investors in India.<br><br>This certificate is proof of dedication to a goal: to become a professional who bridges technology and capital markets. Not as a hobbyist. As a licensed, credentialed analyst who takes this work seriously — and understands the responsibility that comes with it.</p>
+          <div class="wtags">
+            <span class="wtag">SEBI Regulated</span><span class="wtag">Score: 66.75 / 100</span>
+            <span class="wtag">Reg: NISM-202500234524</span><span class="wtag">Valid Dec 2028</span>
+          </div>
+        </div>
+        <div class="wcta">
+          <span class="wctal" style="color:#8a6a10">View My Certificate →</span>
+          <div class="warr ago">↗</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="sh fi"><div class="sl">Credentials</div><h2 class="st">NISM Certification</h2></div>
+    <div class="cwrap fi">
+      <div class="cseal">📜</div>
+      <div>
+        <div class="ci">SEBI · National Institute of Securities Markets · India</div>
+        <div class="ct">NISM-Series XV: Research Analyst Certification Examination</div>
+        <div class="cb">India's mandatory certification for equity research analysts under SEBI's Research Analysts Regulations, 2014. Covers securities analysis, valuation, research ethics and SEBI regulations. Issued December 26, 2025 · Reg No: NISM-202500234524.</div>
+        <div class="cpills"><span class="cp">SEBI Regulated</span><span class="cp">Equity Research</span><span class="cp">Securities Analysis</span><span class="cp">Valuation Methods</span><span class="cp">Research Ethics</span></div>
+        <a href="NISM_XV_certi-unlocked.pdf" target="_blank" class="cbtn">🏆 View My NISM Certificate (PDF)</a>
+      </div>
+      <div class="cstats">
+        <div class="cstat"><div class="csn">66.75</div><div class="csl">Score / 100</div></div>
+        <div class="cstat"><div class="csn">PASS</div><div class="csl">Result</div></div>
+        <div class="cstat"><div class="csn">Dec'28</div><div class="csl">Valid Until</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sh"><div class="sl">Contact</div><h2 class="st">Let's Connect</h2><p class="ss">Open to equity research, quant analyst, and fintech roles. Immediate joiner.</p></div>
+    <div class="cg fi">
+      <div class="cls">
+        <a href="mailto:geekyyatharth90@gmail.com" class="cl"><div class="cli">✉️</div><div><div class="cll">Email</div><div class="clv">geekyyatharth90@gmail.com</div></div></a>
+        <a href="tel:+918320117412" class="cl"><div class="cli">📞</div><div><div class="cll">Phone</div><div class="clv">+91 83201 17412</div></div></a>
+        <a href="https://linkedin.com/in/yatharth-bhatt" target="_blank" class="cl"><div class="cli">💼</div><div><div class="cll">LinkedIn</div><div class="clv">linkedin.com/in/yatharth-bhatt</div></div></a>
+        <a href="https://github.com/yatharth-bhatt" target="_blank" class="cl"><div class="cli">💻</div><div><div class="cll">GitHub</div><div class="clv">github.com/yatharth-bhatt</div></div></a>
+      </div>
+      <div class="cbox">
+        <div class="avail">Available · Immediate Joiner</div>
+        <h3>Actively Seeking Roles In:</h3>
+        <div class="croles">
+          <span class="crole">Jr. Research Analyst</span><span class="crole">Quantitative Analyst</span>
+          <span class="crole">Fintech Data Analyst</span><span class="crole">Financial Analyst</span>
+          <span class="crole">Equity Research Associate</span>
+        </div>
+        <p>Based in Ahmedabad–Gandhinagar. Open to Mumbai, Bangalore, and remote.</p>
+        <a href="Yatharth_Bhatt_Resume.html" target="_blank" class="btng" style="margin-top:4px">📄 Download Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2025 Yatharth Bhatt · Ahmedabad, Gujarat · NISM-Series XV Certified Research Analyst · Built with passion for markets & code</p></footer>
+
+<script>
+  const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')}),{threshold:.07});
+  document.querySelectorAll('.fi,.fi2,.fi3').forEach(el=>io.observe(el));
+  const secs=document.querySelectorAll('section[id]'),navAs=document.querySelectorAll('.nl a');
+  window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-80)c=s.id});navAs.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+c?'#c9a84c':'rgba(255,255,255,0.62)'})});
+</script>
+</body>
+</html>
